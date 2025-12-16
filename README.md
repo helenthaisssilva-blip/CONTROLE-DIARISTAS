@@ -50,7 +50,4 @@ O sistema exige **login e senha**, verifica se o usuário está **liberado ou bl
 5. Se estiver bloqueado:
    - Mostra a mensagem informando que não foi escalado
 
----
-
-## 🗂 Estrutura do Projeto
 
