@@ -24,7 +24,7 @@ app.post('/presenca', async (req, res) => {
   };
 
   try {
-    const resposta = await fetch('https://script.google.com/macros/s/AKfycbxPw3Wn64v8nttqczw0Cjadr5hcG6DaENNUNKuodLuEZ3wuu80BTfCUFfbdS-pq2a-tew/exec', {
+    const resposta = await fetch('https://script.google.com/macros/s/AKfycbwXp1oAy77uTWNRAv_D4LciXgTmc62Vv4zTVmdfI_94yclb2edVqoms7wBF4O61E7j_/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dados)
