@@ -1,12 +1,14 @@
 const express = require('express');
 const fetch = (...args) =>
-  import('node-fetch').then(({default: fetch}) => fetch(...args));
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static('public')); // Para servir login.html
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/login.html');
+  res.sendFile(__dirname + '/public/login.html');
 });
 
 app.post('/presenca', async (req, res) => {
@@ -24,7 +26,7 @@ app.post('/presenca', async (req, res) => {
   try {
     const resposta = await fetch('https://script.google.com/macros/s/AKfycbxPw3Wn64v8nttqczw0Cjadr5hcG6DaENNUNKuodLuEZ3wuu80BTfCUFfbdS-pq2a-tew/exec', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dados)
     });
 
@@ -46,4 +48,3 @@ app.post('/presenca', async (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log('Servidor rodando na porta 3000');
 });
-
