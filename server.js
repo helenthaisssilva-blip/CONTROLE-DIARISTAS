@@ -5,7 +5,7 @@ const fetch = (...args) =>
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public')); // Para servir login.html
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/login.html');
@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
 
 app.post('/presenca', async (req, res) => {
   const agora = new Date();
-
   const dados = {
     login: req.body.login,
     senha: req.body.senha,
@@ -24,7 +23,7 @@ app.post('/presenca', async (req, res) => {
   };
 
   try {
-    const resposta = await fetch('https://script.google.com/macros/s/AKfycbwXp1oAy77uTWNRAv_D4LciXgTmc62Vv4zTVmdfI_94yclb2edVqoms7wBF4O61E7j_/exec', {
+    const resposta = await fetch('https://script.google.com/macros/s/AKfycbyaoJSAmP-6aJwkqow7xya5H6viJtQeyLLSq23bXdwwxJtwrGULCgypjCmnBkv4TmLSdg/exec', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dados)
