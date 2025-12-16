@@ -1,0 +1,16 @@
+<form method="POST" action="/presenca">
+  <input name="login" placeholder="Login" required>
+  <input type="password" name="senha" placeholder="Senha" required>
+
+  <input type="hidden" name="lat" id="lat">
+  <input type="hidden" name="lng" id="lng">
+
+  <button>Registrar presença</button>
+</form>
+
+<script>
+navigator.geolocation.getCurrentPosition(pos => {
+  document.getElementById('lat').value = pos.coords.latitude;
+  document.getElementById('lng').value = pos.coords.longitude;
+});
+</script>
